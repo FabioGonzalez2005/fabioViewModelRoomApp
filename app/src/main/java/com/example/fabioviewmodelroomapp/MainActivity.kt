@@ -3,45 +3,23 @@ package com.example.fabioviewmodelroomapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.fabioviewmodelroomapp.ui.theme.FabioViewModelRoomAppTheme
+import com.example.fabioviewmodelroomapp.model.*
+import com.example.fabioviewmodelroomapp.view.App
+import com.example.fabioviewmodelroomapp.viewmodel.MapViewModel
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
+        val database = MapDatabase.getDatabase(this)
+        val markerDao = database.markerDao()
+        val markerTypeDao = database.markerTypeDao()
+
+        val mapViewModel = MapViewModel(markerDao, markerTypeDao)
+
         setContent {
-            FabioViewModelRoomAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+            App(mapViewModel)
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    FabioViewModelRoomAppTheme {
-        Greeting("Android")
     }
 }

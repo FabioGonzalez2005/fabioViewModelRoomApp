@@ -14,6 +14,7 @@ roomRuntime = "2.6.1"
 osmAndroidCompose = "0.0.3"
 lifecycle = "2.8.7"
 lifecycleViewmodelKtx = "2.8.7"
+transportationConsumer = "2.99.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -39,6 +40,7 @@ osmdroid-android = { module = "org.osmdroid:osmdroid-android", version.ref = "os
 osm-android-compose = { module = "tech.utsmankece:osm-android-compose", version.ref = "osmAndroidCompose" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+transportation-consumer = { group = "com.google.android.libraries.mapsplatform.transportation", name = "transportation-consumer", version.ref = "transportationConsumer" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

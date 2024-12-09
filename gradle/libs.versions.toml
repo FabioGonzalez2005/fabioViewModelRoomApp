@@ -13,6 +13,7 @@ roomCompiler = "2.5.0"
 roomRuntime = "2.6.1"
 osmAndroidCompose = "0.0.3"
 lifecycle = "2.8.7"
+lifecycleViewmodelKtx = "2.8.7"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,6 +38,7 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 osmdroid-android = { module = "org.osmdroid:osmdroid-android", version.ref = "osmdroidAndroid" }
 osm-android-compose = { module = "tech.utsmankece:osm-android-compose", version.ref = "osmAndroidCompose" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

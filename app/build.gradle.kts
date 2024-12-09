@@ -2,16 +2,17 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp")
 }
 
 android {
-    namespace = "com.example.fabioviewmodelroomapp"
-    compileSdk = 34
+    namespace = "org.iesharia.maproomapp"
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.fabioviewmodelroomapp"
-        minSdk = 28
-        targetSdk = 34
+        applicationId = "org.iesharia.maproomapp"
+        minSdk = 35
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -40,6 +41,18 @@ android {
 }
 
 dependencies {
+    // Osmdroid (mapas)
+    implementation(libs.osmdroid.android)
+    implementation(libs.osm.android.compose)
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    ksp (libs.androidx.room.compiler.v250)
+
+    // ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

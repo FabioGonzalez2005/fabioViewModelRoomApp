@@ -23,4 +23,9 @@ class MapViewModel(
         }
     }
 
+    fun deleteMarker(marker: Marker) {
+        viewModelScope.launch {
+            markerDao.delete(marker)
+        }
+    }
 }

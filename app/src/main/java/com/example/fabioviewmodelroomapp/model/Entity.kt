@@ -20,3 +20,24 @@ data class Favorite(
     val id: Int = 0,
     val markerId: Int
 )
+
+@Entity(
+    tableName = "markers",
+    foreignKeys = [
+        ForeignKey(
+            entity = TypeMarker::class,
+            parentColumns = ["id"],
+            childColumns = ["markerTypeId"],
+            onDelete = ForeignKey.SET_NULL
+        )
+    ]
+)
+data class Marker(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
+    val name: String,
+    val latitude: String,
+    val longitude: String,
+    val description: String? = null,
+    val markerTypeId: Int
+)

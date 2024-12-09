@@ -21,3 +21,18 @@ interface FavoriteDao {
     @Query("SELECT EXISTS(SELECT 1 FROM favorites WHERE markerId = :markerId)")
     suspend fun isFavorite(markerId: Int): Boolean
 }
+
+@Dao
+interface MarkerDao {
+    @Insert
+    suspend fun insert(marker: Marker)
+
+    @Delete
+    suspend fun delete(marker: Marker)
+
+    @Query("SELECT * FROM markers")
+    fun getAllMarkers(): Flow<List<Marker>>
+
+    @Query("SELECT * FROM markers WHERE id = :id")
+    fun getMarkerById(id: Int): Flow<Marker?>
+}

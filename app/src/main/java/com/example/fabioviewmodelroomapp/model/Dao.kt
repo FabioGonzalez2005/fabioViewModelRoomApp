@@ -36,3 +36,15 @@ interface MarkerDao {
     @Query("SELECT * FROM markers WHERE id = :id")
     fun getMarkerById(id: Int): Flow<Marker?>
 }
+
+@Dao
+interface TypeMarkerDao {
+    @Insert
+    suspend fun insertMarkerType(typeMarker: TypeMarker)
+
+    @Query("SELECT * FROM types_markers")
+    fun getAllMarkerTypes(): Flow<List<TypeMarker>>
+
+    @Query("SELECT * FROM types_markers WHERE id = :id")
+    fun getMarkerTypeById(id: Int): Flow<TypeMarker?>
+}

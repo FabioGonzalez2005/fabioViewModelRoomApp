@@ -41,3 +41,10 @@ data class Marker(
     val description: String? = null,
     val markerTypeId: Int
 )
+
+@Entity(tableName = "types_markers")
+data class TypeMarker(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
+    val name: String
+)

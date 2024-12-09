@@ -17,4 +17,10 @@ class MapViewModel(
     val allMarkers: Flow<List<Marker>> = markerDao.getAllMarkers()
     val allMarkerTypes: Flow<List<TypeMarker>> = markerTypeDao.getAllMarkerTypes()
 
+    fun addMarker(marker: Marker) {
+        viewModelScope.launch {
+            markerDao.insert(marker)
+        }
+    }
+
 }
